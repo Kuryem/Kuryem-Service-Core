@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/kuryem"
+    "registry": "https://npm.pkg.github.com/@kuryem"
   },
   "scripts": {
     "test": "exit 0",
