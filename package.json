@@ -12,14 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/kuryem/Kuryem_Service_Core.git"
+    "url": "https://github.com/kuryem/kuryem-service-core.git"
   },
   "author": "atakansavas",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Kuryem/Kuryem_Service_Core/issues"
+    "url": "https://github.com/Kuryem/kuryem-service-core/issues"
   },
-  "homepage": "https://github.com/Kuryem/Kuryem_Service_Core#readme",
+  "homepage": "https://github.com/Kuryem/kuryem-service-core#readme",
   "dependencies": {
     "ajv": "^6.5.5",
     "axios": "^0.20.0",
