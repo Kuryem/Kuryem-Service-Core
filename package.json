@@ -1,0 +1,32 @@
+{
+  "name": "kuryem_service_core",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/@Kuryem"
+  },
+  "scripts": {
+    "test": "exit 0",
+    "deploy": "npm publish"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kuryem/Kuryem_Service_Core.git"
+  },
+  "author": "atakansavas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kuryem/Kuryem_Service_Core/issues"
+  },
+  "homepage": "https://github.com/Kuryem/Kuryem_Service_Core#readme",
+  "dependencies": {
+    "ajv": "^6.5.5",
+    "axios": "^0.20.0",
+    "dotenv": "^6.1.0",
+    "enum": "^3.0.4",
+    "id-shorter": "^0.1.1",
+    "moment": "^2.29.1",
+    "mongodb": "^3.6.3"
+  }
+}

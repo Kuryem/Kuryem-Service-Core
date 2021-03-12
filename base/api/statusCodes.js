@@ -1,0 +1,10 @@
+const STATUS_CODE_MAPPING = {
+  CREATE: 201,
+  READ: 200,
+  QUERY: 200,
+  UPDATE: 200,
+  DELETE: 204,
+  DISTINCT: 200,
+};
+
+module.exports = STATUS_CODE_MAPPING;
