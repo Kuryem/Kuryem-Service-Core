@@ -309,9 +309,10 @@ const FrService = {
       }
     }
 
+    const time = new Date().getTime();
     const metaObject = {
-      modified_at: new Date().getTime(),
-      modified_at_string: new Date(),
+      modified_at: time,
+      modified_at_string: new Date(time),
       modified_by_id: user._id,
       modified_by: !!user.name ? user.name + ' ' + user.lastName : 'ApiAdmin',
     };
@@ -370,9 +371,10 @@ const FrService = {
       token: token,
     };
 
+    const time = new Date().getTime();
     const metaObject = {
-      deleted_at: new Date().getTime(),
-      deleted_at_string: new Date(),
+      deleted_at: time,
+      deleted_at_string: new Date(time),
       is_deleted: true,
       deleted_by: !!user.name ? user.name + ' ' + user.lastName : 'ApiAdmin',
       deleted_by_id: user._id,
