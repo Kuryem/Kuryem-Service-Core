@@ -22,7 +22,7 @@
   "homepage": "https://github.com/Kuryem/kuryem-service-core#readme",
   "dependencies": {
     "ajv": "^6.5.5",
-    "axios": "^0.20.0",
+    "axios": ">=0.20.0",
     "dotenv": "^6.1.0",
     "enum": "^3.0.4",
     "id-shorter": "^0.1.1",
