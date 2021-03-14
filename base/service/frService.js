@@ -143,7 +143,7 @@ const FrService = {
     const time = new Date().getTime();
     const metaObject = {
       created_at: time,
-      created_at_string: moment.unix(time).format(),
+      created_at_string: new Date(time),
       created_by_id: user._id,
       created_by: !!user.name ? user.name + ' ' + user.lastName : 'ApiAdmin',
       is_deleted: false,
