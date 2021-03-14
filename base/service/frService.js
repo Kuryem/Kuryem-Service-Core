@@ -140,9 +140,10 @@ const FrService = {
       }
     }
 
+    const unix = moment().unix();
     const metaObject = {
-      created_at: new Date().getTime(),
-      created_at_string: new Date(),
+      created_at: unix,
+      created_at_string: moment.unix(unix).format(),
       created_by_id: user._id,
       created_by: !!user.name ? user.name + ' ' + user.lastName : 'ApiAdmin',
       is_deleted: false,
@@ -308,9 +309,10 @@ const FrService = {
       }
     }
 
+    const unix = moment().unix();
     const metaObject = {
-      modified_at: new Date().getTime(),
-      modified_at_string: new Date(),
+      modified_at: unix,
+      modified_at_string: moment.unix(unix).format(),
       modified_by_id: user._id,
       modified_by: !!user.name ? user.name + ' ' + user.lastName : 'ApiAdmin',
     };
@@ -369,10 +371,11 @@ const FrService = {
       token: token,
     };
 
+    const unix = moment().unix();
     const metaObject = {
-      deleted_at: new Date().getTime(),
-      deleted_at_string: new Date(),
       is_deleted: true,
+      deleted_at: unix,
+      deleted_at_string: moment.unix(unix).format(),
       deleted_by: !!user.name ? user.name + ' ' + user.lastName : 'ApiAdmin',
       deleted_by_id: user._id,
     };
