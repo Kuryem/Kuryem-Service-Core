@@ -317,7 +317,7 @@ const FrService = {
       modified_by: !!user.name ? user.name + ' ' + user.lastName : 'ApiAdmin',
     };
 
-    resource['_meta'] = { ...resource['_meta'], ...metaObject };
+    updatedResource['_meta'] = { ...resource['_meta'], ...metaObject };
 
     const pipelineParams = {
       db: db,
