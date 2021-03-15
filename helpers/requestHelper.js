@@ -9,7 +9,6 @@ module.exports = class RequestHelper {
       headers: {
         Authorization: token,
       },
-      options,
     });
     service.interceptors.response.use(this.handleSuccess, this.handleError);
 
