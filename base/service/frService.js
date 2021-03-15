@@ -29,11 +29,12 @@ const FrService = {
     if (settings.OnlyShowDataToCurrentCourier) {
       //* Bu datayi sadece sahip olduğu user görür.
       if (
-        resource.courier_id !== user._id ||
-        resource.courier_id !== user.parent.parentId
+        resource.courier_id &&
+        (resource.courier_id !== user._id ||
+          resource.courier_id !== user.parent.parentId)
       ) {
         throw new frError({
-          message: 'Unauthorized entity.',
+          message: 'Bu bilgiyi göremezsiniz.',
           code: ErrorCodes.Unauthorized,
           status: 403,
         });
