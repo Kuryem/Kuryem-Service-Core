@@ -12,6 +12,7 @@ module.exports = class RequestHelper {
     });
     service.interceptors.response.use(this.handleSuccess, this.handleError);
 
+    service.setBaseURL(_baseUrl);
     this.service = service;
     this.baseUrl = _baseUrl;
     this.token = token;
@@ -80,7 +81,7 @@ module.exports = class RequestHelper {
     if (cleanObject) payload = utilities.cleanObject(payload);
     return new Promise((resolve, reject) => {
       this.service
-        .post(this.baseUrl + path, payload)
+        .post(path, payload)
         .then((resp) => {
           console.log(resp.data);
           resolve(resp.data);
