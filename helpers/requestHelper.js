@@ -9,6 +9,7 @@ module.exports = class RequestHelper {
       headers: {
         Authorization: token,
       },
+      options,
     });
     service.interceptors.response.use(this.handleSuccess, this.handleError);
 
@@ -79,8 +80,15 @@ module.exports = class RequestHelper {
     }
     if (cleanObject) payload = utilities.cleanObject(payload);
     return new Promise((resolve, reject) => {
+      var options = {
+        host: this.baseUrl,
+        port: 80,
+        path: path,
+        data: payload,
+        method: 'POST',
+      };
       this.service
-        .post(this.baseUrl + path, payload)
+        .post(options)
         .then((resp) => {
           console.log(resp.data);
           resolve(resp.data);
