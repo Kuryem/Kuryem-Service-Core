@@ -9,7 +9,13 @@ const ErrorCodes = require('../../error/errorCodes');
 const Enums = require('../../enums/index');
 
 const FrService = {
-  read: async ({ db, id = null, tableName = null, user = null } = {}) => {
+  read: async ({
+    db,
+    id = null,
+    tableName = null,
+    user = null,
+    settings = {},
+  } = {}) => {
     let where = { _id: id };
 
     const resource = await FrRepo.findOneBy(
@@ -19,6 +25,20 @@ const FrService = {
       tableName,
       true
     );
+
+    if (settings.OnlyShowDataToCurrentCourier) {
+      //* Bu datayi sadece sahip olduğu user görür.
+      if (
+        resource.courier_id !== user._id ||
+        resource.courier_id !== user.parent.parentId
+      ) {
+        throw new frError({
+          message: 'Unauthorized entity.',
+          code: ErrorCodes.Unauthorized,
+          status: 403,
+        });
+      }
+    }
 
     return resource;
   },

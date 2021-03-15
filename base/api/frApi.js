@@ -276,6 +276,7 @@ module.exports = class FrApi {
             id: resourceId,
             tableName: this.tableName,
             user: user,
+            settings: this.settings.ServiceSettings,
           });
 
           document = await Utilities.runReadFormatter({
