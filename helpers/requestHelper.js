@@ -79,15 +79,8 @@ module.exports = class RequestHelper {
     }
     if (cleanObject) payload = utilities.cleanObject(payload);
     return new Promise((resolve, reject) => {
-      const requestObjects = {
-        host: this.baseUrl,
-        port: 80,
-        path: path,
-        data: payload,
-        method: 'POST',
-      };
       this.service
-        .post(requestObjects)
+        .post(this.baseUrl + path, payload)
         .then((resp) => {
           console.log(resp.data);
           resolve(resp.data);
