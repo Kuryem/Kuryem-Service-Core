@@ -26,14 +26,16 @@ const FrService = {
       true
     );
 
-    if (settings.OnlyShowDataToCurrentCourier && user.userType === 2) {
+    if (
+      settings.OnlyShowDataToCurrentCourier &&
+      user.userType === Enums.UserTypes.Courier.value.Id &&
+      resource.courier_id
+    ) {
       //* Bu datayi sadece sahip olduğu user görür.
-
       if (
+        resource.courier_id.toString() !== user._id.toString() &&
         resource.courier_parent_id &&
-        resource.courier_parent_id.toString() != user._id.toString() &&
-        resource.courier_id &&
-        resource.courier_id.toString() != user._id.toString()
+        resource.courier_parent_id.toString() !== user._id.toString()
       ) {
         throw new frError({
           message: 'Bu bilgiyi göremezsiniz.',
@@ -41,6 +43,17 @@ const FrService = {
           status: 403,
         });
       }
+
+      // if (
+      //   resource.courier_id.toString() !== user._id.toString() &&
+
+      // ) {
+      //   throw new frError({
+      //     message: 'Bu bilgiyi göremezsiniz.',
+      //     code: ErrorCodes.Unauthorized,
+      //     status: 403,
+      //   });
+      // }
     }
 
     return resource;
@@ -119,7 +132,7 @@ const FrService = {
     if (settings.IsUser && user.userType == Enums.UserTypes.User.value.Id) {
       if (!body.user_id) {
         resource.user_id = ObjectId(user._id.toString());
-        if (!body.user_parent_id && !!user.parent.parentId) {
+        if (!user.parent.parentId) {
           resource.user_parent_id = ObjectId(user.parent.parentId.toString());
         }
       } else if (body.user_id) {
@@ -142,7 +155,7 @@ const FrService = {
     ) {
       if (!body.courier_id) {
         resource.courier_id = ObjectId(user._id.toString());
-        if (!body.courier_parent_id && !!user.parent.parentId) {
+        if (!!user.parent.parentId) {
           resource.courier_parent_id = ObjectId(
             user.parent.parentId.toString()
           );
