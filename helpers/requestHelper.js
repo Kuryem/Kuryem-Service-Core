@@ -9,10 +9,10 @@ module.exports = class RequestHelper {
       headers: {
         Authorization: token,
       },
+      baseURL: _baseUrl,
     });
     service.interceptors.response.use(this.handleSuccess, this.handleError);
 
-    service.setBaseURL(_baseUrl);
     this.service = service;
     this.baseUrl = _baseUrl;
     this.token = token;
