@@ -8,6 +8,7 @@ module.exports = class RequestHelper {
     let service = axios.create({
       headers: {
         Authorization: token,
+        'Content-Type': 'application/json',
       },
       baseURL: _baseUrl,
     });

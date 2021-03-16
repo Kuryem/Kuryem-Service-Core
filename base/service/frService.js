@@ -26,12 +26,14 @@ const FrService = {
       true
     );
 
-    if (settings.OnlyShowDataToCurrentCourier) {
+    if (settings.OnlyShowDataToCurrentCourier && user.userType === 2) {
       //* Bu datayi sadece sahip olduğu user görür.
+
       if (
+        resource.courier_parent_id &&
+        resource.courier_parent_id.toString() != user._id.toString() &&
         resource.courier_id &&
-        resource.courier_id != user._id &&
-        resource.courier_id != user.parent.parentId
+        resource.courier_id.toString() != user._id.toString()
       ) {
         throw new frError({
           message: 'Bu bilgiyi göremezsiniz.',
