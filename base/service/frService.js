@@ -33,9 +33,9 @@ const FrService = {
     ) {
       //* Bu datayi sadece sahip olduğu user görür.
       if (
-        resource.courier_id.toString() !== user._id.toString() &&
-        resource.courier_parent_id &&
-        resource.courier_parent_id.toString() !== user._id.toString()
+        resource.courier_id.toString() !== user._id.toString() ||
+        (resource.courier_parent_id &&
+          resource.courier_parent_id.toString() !== user._id.toString())
       ) {
         throw new frError({
           message: 'Bu bilgiyi göremezsiniz.',
@@ -43,17 +43,6 @@ const FrService = {
           status: 403,
         });
       }
-
-      // if (
-      //   resource.courier_id.toString() !== user._id.toString() &&
-
-      // ) {
-      //   throw new frError({
-      //     message: 'Bu bilgiyi göremezsiniz.',
-      //     code: ErrorCodes.Unauthorized,
-      //     status: 403,
-      //   });
-      // }
     }
 
     return resource;
