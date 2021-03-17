@@ -90,6 +90,12 @@ const utilities = {
       where['courier_id'] = utilities.makeObjectId(where['courier_id']);
     }
 
+    if (where['parent.parentId']) {
+      where['parent.parentId'] = utilities.makeObjectId(
+        where['parent.parentId']
+      );
+    }
+
     if (where['courier_parent_id']) {
       where['courier_parent_id'] = utilities.makeObjectId(
         where['courier_parent_id']
