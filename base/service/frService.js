@@ -121,7 +121,7 @@ const FrService = {
     if (settings.IsUser && user.userType == Enums.UserTypes.User.value.Id) {
       if (!body.user_id) {
         resource.user_id = ObjectId(user._id.toString());
-        if (!user.parent.parentId) {
+        if (user.parent.parentId) {
           resource.user_parent_id = ObjectId(user.parent.parentId.toString());
         }
       } else if (body.user_id) {
@@ -144,7 +144,7 @@ const FrService = {
     ) {
       if (!body.courier_id) {
         resource.courier_id = ObjectId(user._id.toString());
-        if (!!user.parent.parentId) {
+        if (user.parent.parentId) {
           resource.courier_parent_id = ObjectId(
             user.parent.parentId.toString()
           );
