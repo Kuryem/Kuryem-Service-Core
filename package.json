@@ -1,6 +1,6 @@
 {
   "name": "@kuryem/kuryem-service-core",
-  "version": "1.0.27",
+  "version": "1.0.28",
   "description": "",
   "main": "index.js",
   "publishConfig": {
@@ -27,6 +27,6 @@
     "enum": "^3.0.4",
     "id-shorter": "^0.1.1",
     "moment-timezone": "^0.5.33",
-    "mongodb": "^3.6.3"
+    "mongodb": "^3.6.5"
   }
 }
