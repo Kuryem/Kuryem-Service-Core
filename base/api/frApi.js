@@ -14,7 +14,7 @@ module.exports = class FrApi {
     tableName,
     service,
     authMethod,
-    keyProps
+    dbMethod
   ) {
     this.fastify = fastify;
     this.opts = opts;
@@ -23,7 +23,7 @@ module.exports = class FrApi {
     this.tableName = tableName;
     this.service = service;
     this.authMethod = authMethod;
-    this.keyProps = keyProps;
+    this.dbMethod = dbMethod;
   }
 
   generateUrls() {
@@ -101,6 +101,8 @@ module.exports = class FrApi {
               },
             });
           }
+
+          this.opts.db = await this.dbMethod();
 
           let where = request.body.where || {};
           let select = request.body.select || {};
@@ -182,6 +184,7 @@ module.exports = class FrApi {
               },
             });
           }
+          this.opts.db = await this.dbMethod();
 
           let where = {};
           let select = {};
@@ -251,11 +254,7 @@ module.exports = class FrApi {
         async (request, reply) => {
           let user = {};
           let authHeader = request.headers.authorization || null;
-          user = await this.authMethod(
-            authHeader,
-            this.opts.secret,
-            this.opts.db
-          );
+          user = await this.authMethod(authHeader, this.opts.secret);
 
           if (!GET.UserTypes.includes(user.userType)) {
             throw new frError({
@@ -269,6 +268,7 @@ module.exports = class FrApi {
             });
           }
 
+          this.opts.db = await this.dbMethod();
           let resourceId = request.params.resourceId;
 
           let document = await this.service.read({
@@ -330,6 +330,7 @@ module.exports = class FrApi {
           }
 
           let providedBody = request.body;
+          this.opts.db = await this.dbMethod();
 
           let document = await this.service.create({
             db: this.opts.db,
@@ -402,6 +403,8 @@ module.exports = class FrApi {
             });
           }
 
+          this.opts.db = await this.dbMethod();
+
           let providedBody = request.body;
           let resourceId = request.params.resourceId;
 
@@ -466,6 +469,7 @@ module.exports = class FrApi {
           }
 
           let resourceId = request.params.resourceId;
+          this.opts.db = await this.dbMethod();
 
           await this.service.delete({
             db: this.opts.db,
