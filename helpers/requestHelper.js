@@ -9,10 +9,13 @@ module.exports = class RequestHelper {
       headers: {
         Authorization: token,
         'Content-Type': 'application/json',
-        _agent: _agent,
       },
       baseURL: _baseUrl,
     });
+
+    if (_agent) {
+      service.defaults.headers.common['_agent'] = JSON.parse(_agent);
+    }
     service.interceptors.response.use(this.handleSuccess, this.handleError);
 
     this.service = service;
