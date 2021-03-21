@@ -4,11 +4,12 @@ const axios = require('axios');
 const utilities = require('./utilities');
 
 module.exports = class RequestHelper {
-  constructor(token, _baseUrl) {
+  constructor(token, _baseUrl, _agent) {
     let service = axios.create({
       headers: {
         Authorization: token,
         'Content-Type': 'application/json',
+        _agent: _agent,
       },
       baseURL: _baseUrl,
     });
