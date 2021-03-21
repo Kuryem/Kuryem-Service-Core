@@ -14,6 +14,7 @@ const SystemSettings = new Enum({
   TolerancePrice: '10',
   PenaltyForCourierAssign: '11',
   PenaltyForCourierPicked: '12',
+  PenaltyForLateSuccess: '13',
 });
 
 module.exports = SystemSettings;
