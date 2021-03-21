@@ -496,7 +496,9 @@ const FrService = {
       if (user.userType == Enums.UserTypes.User.value.Id) {
         _where['user_owner_id'] = user._id;
       } else if (user.userType == Enums.UserTypes.Courier.value.Id) {
-        _where['courier_owner_id'] = user._id;
+        _where['courier_owner_id'] = user.parent.parentId
+          ? user.parent.parentId
+          : user._id;
       }
     } else {
       if (user.userType == Enums.UserTypes.User.value.Id) {
