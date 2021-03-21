@@ -32,10 +32,16 @@ const FrService = {
       resource.courier_id
     ) {
       //* Bu datayi sadece sahip olduğu user görür.
+      const partialResponse = await FrService.partial({
+        db: db,
+        tableName: tableName,
+        user: user,
+      });
+
       if (
-        resource.courier_id.toString() !== user._id.toString() ||
-        (resource.courier_parent_id &&
-          resource.courier_parent_id.toString() !== user._id.toString())
+        !partialResponse.items.some(
+          (item) => item._id.toString() === id.toString()
+        )
       ) {
         throw new frError({
           message: 'Bu bilgiyi göremezsiniz.',
