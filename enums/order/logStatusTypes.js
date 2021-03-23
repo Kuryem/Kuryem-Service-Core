@@ -37,7 +37,7 @@ module.exports = new Enum({
   },
   Canceled: {
     Id: 8,
-    Desc: 'Kurye almaktan vazgeçti.',
+    Desc: 'Siparis iptal edildi',
     OrderStatusId: 5,
   },
   TransferAccepted: {

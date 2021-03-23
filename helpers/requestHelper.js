@@ -14,7 +14,7 @@ module.exports = class RequestHelper {
     });
 
     if (_agent) {
-      service.defaults.headers.common['_agent'] = JSON.parse(_agent);
+      service.defaults.headers.common['_agent'] = _agent;
     }
     service.interceptors.response.use(this.handleSuccess, this.handleError);
 
