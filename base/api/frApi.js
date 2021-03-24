@@ -81,7 +81,9 @@ module.exports = class FrApi {
         },
         async (request, reply) => {
           if (process.env.KEEPLOGS == 1) {
-            console.log(urls.query + ' METHOD INIT : ', request);
+            console.log(urls.query + ' METHOD INIT : (QUERY)');
+            console.log('request.headers: ', request.headers);
+            console.log('request.body: ', request.body);
           }
           let authHeader = request.headers.authorization || null;
           const user = await this.authMethod(
@@ -161,7 +163,9 @@ module.exports = class FrApi {
         },
         async (request, reply) => {
           if (process.env.KEEPLOGS == 1) {
-            console.log(urls.partial + ' METHOD INIT : ', request);
+            console.log(urls.partial + ' METHOD INIT : (PARTIAL)');
+            console.log('request.headers: ', request.headers);
+            console.log('request.body: ', request.body);
           }
           let user = {};
           let authHeader = request.headers.authorization || null;
@@ -249,6 +253,12 @@ module.exports = class FrApi {
           },
         },
         async (request, reply) => {
+          if (process.env.KEEPLOGS == 1) {
+            console.log(urls.read + ' METHOD INIT : (GET)');
+            console.log('request.headers: ', request.headers);
+            console.log('request.body: ', request.body);
+            console.log('request.params: ', request.params);
+          }
           let user = {};
           let authHeader = request.headers.authorization || null;
           user = await this.authMethod(
@@ -308,7 +318,9 @@ module.exports = class FrApi {
         },
         async (request, reply) => {
           if (process.env.KEEPLOGS == 1) {
-            console.log(urls.create + ' METHOD INIT : ', request);
+            console.log(urls.create + ' METHOD INIT : (POST)');
+            console.log('request.headers: ', request.headers);
+            console.log('request.body: ', request.body);
           }
           let authHeader = request.headers.authorization || null;
           const user = await this.authMethod(
@@ -381,7 +393,9 @@ module.exports = class FrApi {
         },
         async (request, reply) => {
           if (process.env.KEEPLOGS == 1) {
-            console.log(urls.update + ' METHOD INIT : ', request);
+            console.log(urls.update + ' METHOD INIT : (PUT)');
+            console.log('request.headers: ', request.headers);
+            console.log('request.body: ', request.body);
           }
           let authHeader = request.headers.authorization || null;
           const user = await this.authMethod(
@@ -444,7 +458,9 @@ module.exports = class FrApi {
         },
         async (request, reply) => {
           if (process.env.KEEPLOGS == 1) {
-            console.log(urls.delete + ' METHOD INIT : ', request);
+            console.log(urls.delete + ' METHOD INIT : (DELETE)');
+            console.log('request.headers: ', request.headers);
+            console.log('request.body: ', request.body);
           }
           let authHeader = request.headers.authorization || null;
           var user = await this.authMethod(
