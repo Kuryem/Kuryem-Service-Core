@@ -341,6 +341,30 @@ const FrService = {
       }
     }
 
+    if (settings.IsUser && user.userType == Enums.UserTypes.User.value.Id) {
+      if (!body.user_id) {
+        updatedResource.user_id = ObjectId(user._id.toString());
+        if (!body.user_parent_id && !!user.parent.parentId) {
+          updatedResource.user_parent_id = ObjectId(
+            user.parent.parentId.toString()
+          );
+        }
+      } else if (body.user_id) {
+        updatedResource.user_id = ObjectId(body.user_id.toString());
+        if (body.user_parent_id) {
+          updatedResource.user_parent_id = ObjectId(
+            body.user_parent_id.toString()
+          );
+        }
+      }
+
+      if (settings.UseOwner) {
+        updatedResource.user_owner_id = resource.user_parent_id
+          ? resource.user_parent_id
+          : resource.user_id;
+      }
+    }
+
     const time = new Date().getTime();
     const metaObject = {
       modified_at: time,
