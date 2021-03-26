@@ -27,6 +27,7 @@ const PaymentStatues = require('./payments/paymentStatues');
 const BalanceProcessTypes = require('./payments/balanceProcessTypes');
 const PaymentProcessTypes = require('./payments/paymentProcessTypes');
 const PaymentForTypes = require('./payments/paymentForTypes');
+const TransactionStatues = require('./payments/transactionStatues');
 
 module.exports = {
   Groups,
@@ -35,6 +36,7 @@ module.exports = {
   NotificationTypes,
   PackageTypes,
   NotificationForTypes,
+  TransactionStatues,
   VehicleTypes,
   PricingTypes,
   LogStatusTypes,
