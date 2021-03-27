@@ -24,7 +24,7 @@ const PreOrderStatusTypes = require('./order/preOrderStatusTypes');
 const PromotionTypes = require('./payments/promotionTypes');
 const PaymentTypes = require('./payments/paymentTypes');
 const PaymentStatues = require('./payments/paymentStatues');
-const BalanceProcessTypes = require('./payments/balanceProcessTypes');
+// const BalanceProcessTypes = require('./payments/balanceProcessTypes');
 const PaymentProcessTypes = require('./payments/paymentProcessTypes');
 const PaymentForTypes = require('./payments/paymentForTypes');
 const TransactionStatues = require('./payments/transactionStatues');
@@ -54,6 +54,6 @@ module.exports = {
   PromotionTypes,
   PaymentTypes,
   PaymentStatues,
-  BalanceProcessTypes,
+  // BalanceProcessTypes,
   PaymentProcessTypes,
 };
