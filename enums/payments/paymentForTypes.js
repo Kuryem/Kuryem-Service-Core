@@ -10,7 +10,10 @@ module.exports = new Enum({
   RefundOrder: {
     Id: 3,
   },
-  UpdateOrder: {
+  IncreaseOrder: {
     Id: 4,
+  },
+  DecreasingOrder: {
+    Id: 5,
   },
 });

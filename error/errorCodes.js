@@ -20,6 +20,7 @@ const errorCodes = {
   CreditAccount: 'errors.creditAccount',
   ReadOnlyColumns: 'errors.readOnlyColumns',
   BalanceIsNotEnough: 'errors.balanceIsNotEnough',
+  MapException: 'errors.mapException',
 };
 
 module.exports = errorCodes;
