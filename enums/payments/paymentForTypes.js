@@ -7,9 +7,6 @@ module.exports = new Enum({
   ForOrder: {
     Id: 2,
   },
-  CancelOrder: {
-    Id: 3,
-  },
   UpdateOrder: {
     Id: 4,
   },
