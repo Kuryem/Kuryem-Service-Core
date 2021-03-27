@@ -51,4 +51,9 @@ module.exports = new Enum({
     Desc: 'Sipariş',
     IsIncome: false,
   },
+  OrderReturn: {
+    Id: 11,
+    Desc: 'Sipariş iadesi',
+    IsIncome: true,
+  },
 });
