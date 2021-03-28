@@ -27,6 +27,8 @@ const FrRepo = {
   update: async (db, collection, document) => {
     const _where = { _id: document._id };
 
+    delete document._id;
+
     let updateResult = await db.collection(collection).update(_where, document);
     if (updateResult.result.nModified === 0) {
       throw new Error('Resource not found.');
