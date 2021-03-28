@@ -25,6 +25,9 @@ const FrRepo = {
 
   //* Updates given document
   update: async (db, collection, document) => {
+    if (typeof document._id !== 'object' && document._id !== null) {
+      document._id = ObjectId(document._id);
+    }
     const _where = { _id: document._id };
 
     delete document._id;
