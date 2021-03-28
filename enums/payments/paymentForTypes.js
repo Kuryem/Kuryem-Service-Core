@@ -8,6 +8,6 @@ module.exports = new Enum({
     Id: 2,
   },
   UpdateOrder: {
-    Id: 4,
+    Id: 3,
   },
 });
