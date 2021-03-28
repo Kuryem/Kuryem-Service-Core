@@ -44,4 +44,9 @@ module.exports = new Enum({
     Id: 9,
     Desc: 'Transfer kabul edildi.',
   },
+  CancelCompleted: {
+    Id: 8,
+    Desc: 'Siparis iptali tamamlandi.',
+    OrderStatusId: 5,
+  },
 });
