@@ -37,6 +37,8 @@ const FrRepo = {
       throw new Error('Resource not found.');
     }
 
+    document._id = where._id;
+
     return document;
   },
 
