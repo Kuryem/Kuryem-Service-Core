@@ -10,4 +10,7 @@ module.exports = new Enum({
   Canceled: {
     Id: 3,
   },
+  ForUpdate: {
+    Id: 4,
+  },
 });
