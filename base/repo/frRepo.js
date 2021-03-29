@@ -67,7 +67,7 @@ const FrRepo = {
     let founded = await db.collection(collection).findOne(_where, select);
     if (raiseExec && founded == null) {
       throw new frError({
-        message: 'Resource not found in db by given clause: ' + { ...where },
+        message: `Resource not found in db by given clause: + ${{ ...where }}`,
         code: ErrorCodes.ResourceNotFound,
         status: 404,
       });
