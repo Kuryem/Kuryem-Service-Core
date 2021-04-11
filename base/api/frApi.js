@@ -82,7 +82,6 @@ module.exports = class FrApi {
         async (request, reply) => {
           if (process.env.KEEPLOGS == 1) {
             console.log(urls.query + ' METHOD INIT : (QUERY)');
-            console.log('request.headers: ', request.headers);
             console.log('request.body: ', request.body);
           }
           let authHeader = request.headers.authorization || null;

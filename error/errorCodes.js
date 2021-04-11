@@ -21,6 +21,9 @@ const errorCodes = {
   ReadOnlyColumns: 'errors.readOnlyColumns',
   BalanceIsNotEnough: 'errors.balanceIsNotEnough',
   MapException: 'errors.mapException',
+  CreditCardError: 'errors.creditCardError',
+  PaymentError: 'errors.paymentError',
+  ErrorReturned: 'error.externalError',
 };
 
 module.exports = errorCodes;
