@@ -24,6 +24,7 @@ const tableNames = {
   CourierLocationsDb: 'courier_locations_db',
   RatingsDb: 'ratings_db',
   TransactionsDb: 'transactions_db',
+  FaqDb: 'faq_db',
 };
 
 module.exports = tableNames;
