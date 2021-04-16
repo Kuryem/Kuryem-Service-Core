@@ -463,8 +463,8 @@ const FrService = {
     token = '',
   } = {}) => {
     let _where = {
-      ...where,
       status: true,
+      ...where,
     };
 
     let _select = {};
@@ -508,8 +508,8 @@ const FrService = {
     token = '',
   } = {}) => {
     let _where = {
-      ...where,
       status: true,
+      ...where,
     };
 
     // const _select = {
