@@ -328,7 +328,7 @@ module.exports = class FrApi {
             this.opts.db
           );
 
-          if (!POST.UserTypes.includes(user.userType)) {
+          if (POST.UserTypes && !POST.UserTypes.includes(user.userType)) {
             throw new frError({
               message: 'Unauthorized process.',
               code: ErrorCodes.Unauthorized,
