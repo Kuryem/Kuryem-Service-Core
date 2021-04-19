@@ -31,7 +31,7 @@ module.exports = class RequestHelper {
   }
 
   handleError = (error) => {
-    console.error('REQUEST ERROR ', error);
+    console.info('REQUEST ERROR ', error);
 
     throw new frError({
       message: error.response ? error.response.data.message : error.message,
@@ -55,7 +55,7 @@ module.exports = class RequestHelper {
           resolve(resp.data);
         })
         .catch((err) => {
-          console.error(err);
+          console.info(err);
           reject(err);
         });
     });
@@ -73,7 +73,7 @@ module.exports = class RequestHelper {
           resolve(resp.data);
         })
         .catch((err) => {
-          console.error('REQUEST => GET ERROR', err);
+          console.info('REQUEST => GET ERROR', err);
           reject(err);
         });
     });
@@ -92,7 +92,7 @@ module.exports = class RequestHelper {
           resolve(resp.data);
         })
         .catch((err) => {
-          console.error('REQUEST => POST ERROR', err);
+          console.info('REQUEST => POST ERROR', err);
           reject(err);
         });
     });
@@ -111,7 +111,7 @@ module.exports = class RequestHelper {
           resolve(resp.data);
         })
         .catch((err) => {
-          console.error('REQUEST => PUT ERROR', err);
+          console.info('REQUEST => PUT ERROR', err);
           reject(err);
         });
     });
