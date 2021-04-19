@@ -73,7 +73,7 @@ module.exports = class RequestHelper {
           resolve(resp.data);
         })
         .catch((err) => {
-          console.error(err);
+          console.error('REQUEST => GET ERROR', err);
           reject(err);
         });
     });
@@ -92,7 +92,7 @@ module.exports = class RequestHelper {
           resolve(resp.data);
         })
         .catch((err) => {
-          console.error(err);
+          console.error('REQUEST => POST ERROR', err);
           reject(err);
         });
     });
@@ -111,7 +111,7 @@ module.exports = class RequestHelper {
           resolve(resp.data);
         })
         .catch((err) => {
-          console.error(err);
+          console.error('REQUEST => PUT ERROR', err);
           reject(err);
         });
     });
