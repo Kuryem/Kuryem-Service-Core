@@ -31,7 +31,9 @@ module.exports = class RequestHelper {
   }
 
   handleError = (error) => {
-    console.info('REQUEST ERROR ', error);
+    console.info('---- REQUEST ERROR ----');
+    console.log('config: ', error.config);
+    console.log('data: ', error.data);
 
     throw new frError({
       message: error.response ? error.response.data.message : error.message,
