@@ -104,7 +104,10 @@ module.exports = class FrApi {
           }
 
           let where = request.body.where || {};
-          let select = request.body.select || {};
+          let select = request.body.select || {
+            _meta: 0,
+            _agent: 0,
+          };
           let limit = parseInt(request.body.limit) || 30;
           let page = parseInt(request.body.page) || 0;
           let sort = request.body.sort || { _id: 1 };

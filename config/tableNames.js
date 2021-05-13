@@ -29,6 +29,7 @@ const tableNames = {
   ReferencesDb: 'references_db',
   StaticDb: 'static_db',
   TestimonialsDb: 'testimonials_db',
+  InvoiceDb: 'invoice_db',
 };
 
 module.exports = tableNames;
