@@ -14,6 +14,7 @@ const DistancePrices = require('./settings/distancePrices');
 const SidePrices = require('./settings/sidePrices');
 const Zones = require('./settings/zones');
 const ZoneDurations = require('./settings/zoneDurations');
+const KmPrices = require('./settings/kmPrices');
 
 const OrderTypes = require('./order/orderTypes');
 const OrderInputTypes = require('./order/orderInputTypes');
@@ -44,6 +45,7 @@ module.exports = {
   OrderTypes,
   AddressTypes,
   Zones,
+  KmPrices,
   ZoneDurations,
   DurationPrices,
   PaymentForTypes,
