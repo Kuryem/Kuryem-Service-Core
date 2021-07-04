@@ -390,7 +390,7 @@ const FrService = {
       resource = await Utilities.runFunctionPool(beforeUpdate, pipelineParams);
     }
 
-    resource = await FrRepo.update(db, tableName, updatedResource);
+    resource = await FrRepo.update(db, tableName, updatedResource, settings);
 
     if (afterUpdate !== [] && afterUpdate.length > 0) {
       resource = await Utilities.runFunctionPool(afterUpdate, pipelineParams);
