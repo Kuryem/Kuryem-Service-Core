@@ -29,4 +29,8 @@ module.exports = new Enum({
     Id: 7,
     Title: 'Bolge Sureleri',
   },
+  KmPrices: {
+    Id: 8,
+    Title: 'KM Fiyatları',
+  },
 });

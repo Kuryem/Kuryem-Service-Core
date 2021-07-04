@@ -7,9 +7,6 @@ const SystemSettings = new Enum({
   BridgePrice: '6',
   PlannedOrderVisibleTime: '8',
 
-  KMPrice: '7',
-  StepPrice: '4',
-
   ToleranceDuration: '9',
   TolerancePrice: '10',
   PenaltyForCourierAssign: '11',

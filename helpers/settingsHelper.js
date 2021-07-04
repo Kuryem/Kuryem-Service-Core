@@ -17,9 +17,10 @@ const settingsHelper = {
         return require('../settings/sidePrices/schema').settingSchema;
       case 7:
         return require('../settings/zoneDurations/schema').settingSchema;
+      case 8:
+        return require('../settings/kmPrices/schema').settingSchema;
       default:
         return null;
-        break;
     }
   },
 
