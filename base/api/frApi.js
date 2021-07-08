@@ -110,7 +110,7 @@ module.exports = class FrApi {
           };
           let limit = parseInt(request.body.limit) || 30;
           let page = parseInt(request.body.page) || 0;
-          let sort = request.body.sort || { _id: 1 };
+          let sort = request.body.sort || { _id: -1 };
 
           let result = await this.service.filter({
             db: this.opts.db,
