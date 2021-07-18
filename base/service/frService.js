@@ -176,7 +176,7 @@ const FrService = {
       created_at: time,
       created_at_string: new Date(time),
       created_by_id: user._id,
-      created_by: !!user.name ? user.name + ' ' + user.lastName : 'ApiAdmin',
+      created_by: !!user.name ? user.name + ' ' + user.lastName : `${user._id}`,
       is_deleted: false,
     };
 
@@ -370,7 +370,9 @@ const FrService = {
       modified_at: time,
       modified_at_string: new Date(time),
       modified_by_id: user._id,
-      modified_by: !!user.name ? user.name + ' ' + user.lastName : 'ApiAdmin',
+      modified_by: !!user.name
+        ? user.name + ' ' + user.lastName
+        : `${user._id}`,
     };
 
     updatedResource['_meta'] = { ...resource['_meta'], ...metaObject };
@@ -432,7 +434,7 @@ const FrService = {
       deleted_at: time,
       deleted_at_string: new Date(time),
       is_deleted: true,
-      deleted_by: !!user.name ? user.name + ' ' + user.lastName : 'ApiAdmin',
+      deleted_by: !!user.name ? user.name + ' ' + user.lastName : `${user._id}`,
       deleted_by_id: user._id,
     };
 
