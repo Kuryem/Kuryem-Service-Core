@@ -8,6 +8,7 @@ const addressHelper = {
     const buildingNo = address.buildingNo;
     const floor = address.floor;
     const flatNo = address.flatNo;
+    const detail = address.addressDetail;
 
     let response = '';
     if (district) {
@@ -32,6 +33,10 @@ const addressHelper = {
 
     if (county && city) {
       response += ' ' + county + '/' + city;
+    }
+
+    if (detail) {
+      response += ' ' + detail;
     }
 
     return response;
