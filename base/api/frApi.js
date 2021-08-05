@@ -495,7 +495,7 @@ module.exports = class FrApi {
             token: authHeader,
           });
 
-          reply.code(statusCodes.DELETE).send(resource);
+          reply.code(statusCodes.UPDATE).send(resource);
         }
       );
     }
