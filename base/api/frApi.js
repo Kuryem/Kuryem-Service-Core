@@ -485,7 +485,7 @@ module.exports = class FrApi {
 
           let resourceId = request.params.resourceId;
 
-          await this.service.delete({
+          const resource = await this.service.delete({
             db: this.opts.db,
             _id: resourceId,
             beforeDelete: beforeDelete,
@@ -495,7 +495,7 @@ module.exports = class FrApi {
             token: authHeader,
           });
 
-          reply.code(statusCodes.DELETE).send();
+          reply.code(statusCodes.DELETE).send(resource);
         }
       );
     }
