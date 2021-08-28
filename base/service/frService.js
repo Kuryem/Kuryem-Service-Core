@@ -63,7 +63,7 @@ const FrService = {
     user = null,
     settings = {},
     token = '',
-    _agent = '',
+    _agent = '{"brand":"Web","modelName":"Web","osName":"Web"}',
   } = {}) => {
     if (schema !== {}) {
       let { valid, ajv } = Validator.validateBodyBySchema(body, schema);
