@@ -116,21 +116,23 @@ const utilities = {
       where['order_id'] = utilities.makeObjectId(where['order_id']);
     }
 
-    if (where['_meta.user_id']) {
-      where['_meta.user_id'] = utilities.makeObjectId(where['_meta.user_id']);
-    }
-
-    if (where['_meta.created_by']) {
-      where['_meta.created_by'] = utilities.makeObjectId(
-        where['_meta.created_by']
+    if (where['_meta.created_by_id']) {
+      where['_meta.created_by_id'] = utilities.makeObjectId(
+        where['_meta.created_by_id']
       );
     }
 
-    if (where['_meta.modified_by']) {
-      where['_meta.modified_by'] = utilities.makeObjectId(
-        where['_meta.modified_by']
+    if (where['_meta.modified_by_id']) {
+      where['_meta.modified_by_id'] = utilities.makeObjectId(
+        where['_meta.modified_by_id']
       );
     }
+
+    // if (where['_meta.modified_by']) {
+    //   where['_meta.modified_by'] = utilities.makeObjectId(
+    //     where['_meta.modified_by']
+    //   );
+    // }
 
     if (where['_meta.deleted_by']) {
       where['_meta.deleted_by'] = utilities.makeObjectId(
