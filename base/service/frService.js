@@ -7,6 +7,7 @@ const Utilities = require('../../helpers/utilities');
 const frError = require('../../error/frError');
 const ErrorCodes = require('../../error/errorCodes');
 const Enums = require('../../enums/index');
+const FrRepoMultiple = require('../repo/frRepoMultiple');
 
 const FrService = {
   read: async ({
@@ -24,6 +25,59 @@ const FrService = {
       undefined,
       tableName,
       true
+    );
+
+    if (
+      settings.OnlyShowDataToCurrentCourier &&
+      user.userType === Enums.UserTypes.Courier.value.Id &&
+      resource.courier_id
+    ) {
+      //* Bu datayi sadece sahip olduğu user görür.
+      const partialResponse = await FrService.partial({
+        db: db,
+        tableName: tableName,
+        user: user,
+      });
+
+      if (
+        !partialResponse.items.some(
+          (item) => item._id.toString() === id.toString()
+        )
+      ) {
+        throw new frError({
+          message: 'Bu bilgiyi göremezsiniz.',
+          code: ErrorCodes.Unauthorized,
+          status: 403,
+        });
+      }
+    }
+
+    return resource;
+  },
+  readMultiple: async ({
+    where,
+    localField,
+    limit,
+    offset,
+    sort,
+    db,
+    tableName,
+    fromCollection,
+    fromObject,
+    user = null,
+  } = {}) => {
+
+    const resource = await FrRepoMultiple.aggrationManyToOne(
+    where,
+    localField,
+    limit,
+    offset,
+    sort,
+    db,
+    tableName,
+    fromCollection,
+    fromObject,
+    true
     );
 
     if (
